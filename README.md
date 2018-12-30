@@ -14,3 +14,7 @@ mvn sonar:sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.login=2b9e4113fab
 
 sonarqube.postman_collection.json
 
+
+# sonar-report
+java sonar client to retrieve specific metrics from sonarqube 
+
