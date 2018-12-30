@@ -1,0 +1,172 @@
+{
+	"info": {
+		"_postman_id": "8bccd00b-4bc9-4649-ae47-6461d06f4305",
+		"name": "sonarqube",
+		"description": "sonarwube webapi integration",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "projects_search",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "2b9e4113fab2792bb0606097ae039850d55d6cdb",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9000/api/projects/search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"projects",
+						"search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "projects_search_with_project_key",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "2b9e4113fab2792bb0606097ae039850d55d6cdb",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9000/api/projects/search?projects=com.rhtech:reactive",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"projects",
+						"search"
+					],
+					"query": [
+						{
+							"key": "projects",
+							"value": "com.rhtech:reactive"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "project_analysis",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "2b9e4113fab2792bb0606097ae039850d55d6cdb",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9000/api/project_analyses/search?project=com.rhtech:reactive",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"project_analyses",
+						"search"
+					],
+					"query": [
+						{
+							"key": "project",
+							"value": "com.rhtech:reactive"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "project_metrics",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "2b9e4113fab2792bb0606097ae039850d55d6cdb",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9000/api/measures/component?component=com.rhtech:reactive&metricKeys=coverage",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"measures",
+						"component"
+					],
+					"query": [
+						{
+							"key": "component",
+							"value": "com.rhtech:reactive"
+						},
+						{
+							"key": "metricKeys",
+							"value": "coverage"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
