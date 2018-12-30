@@ -1,6 +1,8 @@
 package com.rhtech.reactive.services;
 
-import lombok.extern.slf4j.Slf4j;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -8,8 +10,10 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.Base64;
 
-@Slf4j
 public class SonarService {
+
+    // logger
+    private static final Logger log = LoggerFactory.getLogger(SonarService.class);
 
     private final HttpClient httpClient;
     private final String baseUrl;
@@ -25,7 +29,7 @@ public class SonarService {
 
         try {
             HttpResponse<String> httpResponse = httpClient.send(createProjectAnalysisRequest(projectKey), HttpResponse.BodyHandlers.ofString());
-            log.info("We succeeded in retrieving the response from endpoint");
+            log.info("We succeeded in retrieving the response from endpoint body: {}", httpResponse.body());
 
         } catch (Exception exc) {
             log.error("Failed to retrieve ProjectAnalysis!", exc);
@@ -36,7 +40,7 @@ public class SonarService {
 
         try {
 
-            URI uri = new URI(baseUrl + "/?project=" + projectKey);
+            URI uri = new URI(baseUrl + "/api/project_analyses/search?project=" + projectKey);
 
 
             return HttpRequest
